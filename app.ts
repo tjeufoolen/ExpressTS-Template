@@ -1,0 +1,39 @@
+import createError from "http-errors";
+import dotenv from "dotenv";
+import express from "express";
+import consola from "consola";
+
+// initialize configuration
+dotenv.config();
+
+// setup Express
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// catch 404 and forward to error handler
+app.use((req: any, res: any, next: any) => {
+    next(createError(404));
+});
+
+// error handler
+app.use((err: any, req: any, res: any, next: any) => {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    // render the error page
+    const status = err.status || 500;
+    res.status(status);
+    res.json({
+        status,
+        message: err.message,
+    });
+});
+
+// start the express server
+const port = process.env.SERVER_PORT || 3000;
+app.listen(port, () => {
+    consola.success(`server listening on port ${port}`);
+});

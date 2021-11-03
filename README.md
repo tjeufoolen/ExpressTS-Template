@@ -23,3 +23,6 @@ Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
 
 ## Author
 - [Tjeu Foolen](https://github.com/tjeufoolen)
+
+## License
+- [MIT](LICENSE)

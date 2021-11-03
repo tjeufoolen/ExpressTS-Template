@@ -5,7 +5,7 @@ Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
 - ExpressJS using TypeScript
 - Preconfigured linters
   - [Prettier](https://github.com/prettier/prettier)
-  - [TSLint](https://github.com/palantir/tslint)
+  - [eslint](https://github.com/eslint/eslint) with TypeScript support using [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
 - Automatic linting on precommit using [Husky](https://github.com/typicode/husky)
 - Automatic rebuilding using [nodemon](https://github.com/remy/nodemon)
 
@@ -18,7 +18,7 @@ Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
 6. Enjoy using the template! :tada:.
 
 ## Manual linting
-- Use `npm run lint` for tslint.
+- Use `npm run lint` for eslint.
 - Use `npm run pretty` for prettier.
 
 ## Author

@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // configure routes
-import indexRoutes from "./routes/index";
-app.get("/", indexRoutes);
+import indexRouter from "./routes/index";
+app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -22,7 +22,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 // error handler
-app.use((err: HttpError, req: Request, res: Response) => {
+app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -34,6 +34,7 @@ app.use((err: HttpError, req: Request, res: Response) => {
         status,
         message: err.message,
     });
+    next();
 });
 
 // start the express server

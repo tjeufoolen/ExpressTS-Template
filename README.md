@@ -1,4 +1,5 @@
-# Minimap TypeScript ExpressJS Setup
+# ExpressTS
+Minimal ExpressJS setup with Typescript support and preconfigured linting tools
 
 ## Features
 - ExpressJS using TypeScript

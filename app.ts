@@ -12,6 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// configure routes
+import indexRoutes from "./routes/index";
+app.get("/", indexRoutes);
+
 // catch 404 and forward to error handler
 app.use((req: any, res: any, next: any) => {
     next(createError(404));

@@ -1,6 +1,6 @@
-import createError from "http-errors";
+import createError, { HttpError } from "http-errors";
 import dotenv from "dotenv";
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import consola from "consola";
 
 // initialize configuration
@@ -17,12 +17,12 @@ import indexRoutes from "./routes/index";
 app.get("/", indexRoutes);
 
 // catch 404 and forward to error handler
-app.use((req: any, res: any, next: any) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
     next(createError(404));
 });
 
 // error handler
-app.use((err: any, req: any, res: any, next: any) => {
+app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};

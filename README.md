@@ -15,7 +15,7 @@ Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
 3. Run `npm run prepare`.
 4. Start programming.
 5. Build your code using `npm run build` or `npm run dev`.
-6. Enjoy using the template! :tada:.
+6. Enjoy using the template! :tada:
 
 ## Manual linting
 - Use `npm run lint` for eslint.

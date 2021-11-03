@@ -2,11 +2,17 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
-        "tslint-config-prettier"
+        "tslint-config-prettier",
+        "tslint-plugin-prettier"
     ],
     "jsRules": {},
     "rules": {
         "trailing-comma": [ false ]
     },
-    "rulesDirectory": []
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": [
+            "node_modules/**"
+        ]
+    }
 }

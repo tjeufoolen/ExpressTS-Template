@@ -9,20 +9,43 @@
   },
   "main": "dist/app.js",
   "scripts": {
+    "prepare": "husky install",
     "clean": "rimraf dist/*",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "tsc": "tsc",
+    "pretty": "prettier --write ./**/*.ts",
+    "tsc": "tsc --removeComments",
     "build": "npm-run-all clean lint tsc",
     "dev:start": "npm-run-all build start",
-    "dev": "nodemon --config nodemon.json --exec npm run dev:start",
+    "dev": "nodemon --exec npm run dev:start",
     "start": "node dist/app",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "ignore": [
+        ".git",
+        "dist", 
+        "node_modules"
+    ],
+    "ext": "ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty && npm run lint"
+    }
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 120
   },
   "dependencies": {
     "consola": "^2.15.3",
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3"
+    "http-errors": "~1.6.3",
+    "husky": "^7.0.4",
+    "prettier": "^2.4.1",
+    "tslint-plugin-prettier": "^2.3.0"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",

@@ -12,10 +12,9 @@ Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
 ## Usage
 1. Clone this repository.
 2. Run `npm install`.
-3. Run `npm run prepare`.
-4. Start programming.
-5. Build your code using `npm run build` or `npm run dev`.
-6. Enjoy using the template! :tada:
+3. Start programming.
+4. Build your code using `npm run build` or `npm run dev`.
+5. Enjoy using the template! :tada:
 
 ## Manual linting
 - Use `npm run lint` for eslint.

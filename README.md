@@ -16,8 +16,9 @@ ExpressJS setup with Typescript support, preconfigured linting tools and mongodb
 ## Usage
 1. Clone this repository.
 2. Run `npm install`.
-3. Build the docker image and create containers using `docker-compose up -d --build`.
-4. Enjoy programming! :tada:
+3. Create `.env` by creating a copy of `.env.example` and fill in your credentials.
+4. Build the docker image and create containers using `docker-compose up -d --build`.
+5. Enjoy programming! :tada:
 
 ## Manual linting
 - Use `npm run lint` for eslint.

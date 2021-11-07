@@ -1,4 +1,12 @@
+# Environment
 .DS_Store
-node_modules/
-dist/
 .env
+
+# NodeJS
+node_modules/
+
+# Build
+dist/
+
+# Docker
+database/**

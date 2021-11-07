@@ -2,6 +2,7 @@ import createError, { HttpError } from "http-errors";
 import dotenv from "dotenv";
 import express, { Request, Response, NextFunction } from "express";
 import consola from "consola";
+import mongoose from "mongoose";
 
 // initialize configuration
 dotenv.config();
@@ -11,6 +12,16 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// connect to database
+mongoose.connect(
+    `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`,
+    {},
+    (err) => {
+        if (err) return consola.error(err);
+        consola.success("connected to database");
+    }
+);
 
 // configure routes
 import indexRouter from "./routes/index";

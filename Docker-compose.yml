@@ -1,0 +1,31 @@
+version: "3"
+
+networks:
+    express-api:
+        driver: bridge
+
+services:
+    mongodb:
+        image: bitnami/mongodb:5.0
+        environment:
+            MONGODB_USERNAME: ${DB_USERNAME}
+            MONGODB_PASSWORD: ${DB_PASSWORD}
+            MONGODB_DATABASE: ${DB_NAME}
+            MONGODB_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - ./database:/bitnami/mongodb
+        networks:
+            - express-api
+        restart: unless-stopped
+    app:
+        build: ./
+        volumes:
+            - ./:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - ${SERVER_PORT}:3000
+        networks:
+            - express-api
+        restart: unless-stopped
+        depends_on:
+            - mongodb

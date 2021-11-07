@@ -1,5 +1,5 @@
 # ExpressTS
-Minimal ExpressJS setup with Typescript support and preconfigured linting tools.
+ExpressJS setup with Typescript support, preconfigured linting tools and mongodb connection.
 
 ## Features
 - [ExpressJS](https://expressjs.com/) using [TypeScript](https://www.typescriptlang.org/)
